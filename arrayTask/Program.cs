@@ -20,9 +20,45 @@
 
 //Sozlerden ibaret arrayde uzunlugu 4-den boyuk olan sozleri ekrana çap edin
 
-string[] arr = { "salam", "sagol", "yox" };
+//string[] arr = { "salam", "sagol", "yox" };
 
-for (int i = 0;i< arr.Length; i++)
+//for (int i = 0;i< arr.Length; i++)
+//{
+//    if (arr[i].Length>4) Console.WriteLine(arr[i]);
+//}
+
+
+
+
+
+//Task3
+
+//N uzunluqlu massivin elementlərini azalan sıra ilə düzün
+
+using System;
+
+int n = 5;
+int[] arr = new int[n];
+for (int i = 0; i < n; i++)
 {
-    if (arr[i].Length>4) Console.WriteLine(arr[i]);
+    arr[i]=int.Parse(Console.ReadLine());
+}
+int index;
+for (int i = 0; i < arr.Length; i++)
+{
+    index = i;
+    for (int j = i; j <= arr.Length - 1; j++)
+    {
+        if (arr[j] > arr[index])
+        {
+            index = j;
+        }
+    }
+    int temp = arr[i];
+    arr[i] = arr[index];
+    arr[index] = temp;
+}
+for (int i = 0; i < n; i++)
+{
+    Console.Write(arr[i]+" ");
 }
